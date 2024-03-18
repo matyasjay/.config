@@ -5,6 +5,7 @@ github-copilot
 iterm2
 simple-update-notifier
 yarn
+tmux/plugins
 zed
 
 !git/
