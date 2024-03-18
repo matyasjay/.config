@@ -1,49 +1,6 @@
-#!/usr/bin/env bash
-# 🅳🅾🆃🅵🅸🅻🅴🆂 (v0.2.468) - <https://dotfiles.io>
-# Made with ♥ in London, UK by @sebastienrousseau
-# Copyright (c) 2015-2024. All rights reserved
-# License: MIT
-
-HOSTNAME=$(hostname -f)                 # hostname of the machine.
-INPUTRC=${HOME}/.inputrc                # set INPUTRC (so that .inputrc is respected)
-OS_ARCH=$(uname -m)                     # machine hardware name.
-OS_NAME=$(uname)                        # operating system name.
-OS_VERSION=$(uname -r)                  # operating system version number.
-SSL_CERT_FILE=${HOME}/cacert.pem        # set the SSL_CERT_FILE environment variable.
-USER_LANGUAGE="en_GB.UTF-8"             # default language.
-USER=$(whoami)                          # current user name.
-
-export ARCHFLAGS="-arch ${OS_ARCH}"     # archflags for the current machine.
-export DOTFILES_VERSION='0.2.468'       # version of the dotfiles.
-export DOTFILES="${HOME}"/.dotfiles/lib # path to the cross plaform dotfiles.
-export HOSTNAME=${HOSTNAME}             # hostname of the machine.
-export INPUTRC=${INPUTRC}               # set INPUTRC (so that .inputrc is respected)
-export LANG=${USER_LANGUAGE}            # default language.
-export LANGUAGE=${USER_LANGUAGE}        # default language.
-export LC_ALL=${USER_LANGUAGE}          # default language.
-export LC_CTYPE=${USER_LANGUAGE}        # default language.
-export OS_ARCH                          # machine hardware name.
-export OS_NAME                          # operating system name.
-export OS_VERSION                       # operating system version number.
-export SSL_CERT_FILE=${SSL_CERT_FILE}   # set the SSL_CERT_FILE environment variable.
-export TERM=xterm-256color              # default terminal color.
-export USER                             # current user name.
-
-## 🅻🅾🅰🅳🅴🆁🆂 - Load the dotfiles.
-for loaders in "${DOTFILES}"/*.sh; do
-  # shellcheck source=/dev/null
-  . "${loaders}"
-done
-
-typeset -aU path
-
-autoload -Uz compinit
-compinit
-
-autoload -Uz colors && colors
-unsetopt correct_all
-
 export ZSH="$HOME/.oh-my-zsh"
+
+# The fun stuff
 
 ZSH_THEME="cloud"
 
@@ -52,9 +9,52 @@ plugins=(
   brew
   colorize
   colored-man-pages
-  zsh-autosuggestions
-  zsh-syntax-highlighting
 )
+
+
+# Dotfiles
+
+HOSTNAME=$(hostname -f)
+INPUTRC=${HOME}/.inputrc
+OS_ARCH=$(uname -m)
+OS_NAME=$(uname)
+SSL_CERT_FILE=${HOME}/cacert.pem
+USER_LANGUAGE="en_GB.UTF-8"
+USER=$(whoami)
+VIM="nvim"
+
+export ARCHFLAGS="-arch ${OS_ARCH}"
+export DOTFILES_VERSION='0.2.468'
+export DOTFILES="${HOME}"/.dotfiles/lib
+export HOSTNAME=${HOSTNAME}
+export INPUTRC=${INPUTRC}
+export LANG=${USER_LANGUAGE}
+export LANGUAGE=${USER_LANGUAGE}
+export LC_ALL=${USER_LANGUAGE}
+export LC_CTYPE=${USER_LANGUAGE}
+export OS_ARCH
+export OS_NAME
+export OS_VERSION
+export SSL_CERT_FILE=${SSL_CERT_FILE}
+export USER
+
+for loaders in "${DOTFILES}"/*.sh; do
+  . "${loaders}"
+done
+
+source $ZSH/oh-my-zsh.sh
+
+# Auto-completion
+
+typeset -aU path
+
+autoload -Uz compinit && compinit
+autoload -Uz colors && colors
+
+# Aliases
+
+alias vim=$VIM
+alias vi=$VIM
 
 alias ip="ipconfig getifaddr en0"
 alias zshsource="source ~/.zshrc"
@@ -72,12 +72,16 @@ alias gitd="git diff"
 alias gitl="git lg"
 alias gita="git add ."
 
+# NVM
+
 source /opt/homebrew/opt/nvm/nvm.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 export GPG_TTY=$(tty)
+
+# PNPM
 
 export PNPM_HOME="/Users/amatyas/Library/pnpm"
 
@@ -86,10 +90,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-VIM="nvim"
-
-alias vim="nvim"
-alias vi="nvim"
+# FZF
 
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 --color=fg:#c0caf5,bg:#1a1b26,hl:#ff9e64 \
