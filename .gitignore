@@ -1,0 +1,13 @@
+AWS*
+configstore
+gh
+github-copilot
+iterm2
+simple-update-notifier
+yarn
+zed
+
+!git/
+!htop/
+!nvim/
+!tmux/
