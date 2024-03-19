@@ -19,6 +19,10 @@ return require('packer').startup(function(use)
     use('norcalli/nvim-colorizer.lua')
     use('wakatime/vim-wakatime')
     use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+    use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         requires = {
