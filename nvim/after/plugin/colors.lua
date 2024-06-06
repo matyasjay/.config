@@ -1,7 +1,7 @@
 require('colorizer').setup {
-    '*',                    -- Highlight all files, but customize some others.
-    css = { rgb_fn = true, }, -- Enable parsing rgb(...) functions in css.
-    html = { names = false, } -- Disable parsing "names" like Blue or Gray
+    '*',
+    css = { rgb_fn = true, },
+    html = { names = false, }
 }
 
 require('tokyonight').setup({
@@ -55,6 +55,8 @@ function ColorMyPencils(color)
     vim.cmd.colorscheme(color)
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    vim.api.nvim_set_hl(0, 'LineNr', { fg = '#7AA2F7' })
+    vim.api.nvim_set_hl(0, 'SignColumn', { fg = '#7AA2F7' })
 end
 
 ColorMyPencils()

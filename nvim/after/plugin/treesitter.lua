@@ -20,7 +20,8 @@ require('nvim-treesitter.configs').setup {
         "terraform",
         "lua",
         "rust",
-        "tmux"
+        "tmux",
+        "yaml"
     },
     sync_install = false,
     auto_install = true,
