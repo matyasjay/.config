@@ -5,7 +5,6 @@ require("amatyas.harpoon")
 require("amatyas.set")
 require("amatyas.prettier")
 require("amatyas.lualine")
-require("amatyas.obsidian")
 
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25

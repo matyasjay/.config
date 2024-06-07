@@ -42,7 +42,3 @@ vim.diagnostic.config({
 })
 
 
-vim.g.noshowmode = true
-vim.g.noshowcmd = true
-vim.g.noruler = true
-vim.g.laststatus = 0

@@ -1,8 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-# The fun stuff
-
-ZSH_THEME="cloud"
+ZSH_THEME="essembeh"
 
 plugins=(
   git
@@ -10,9 +8,6 @@ plugins=(
   colorize
   colored-man-pages
 )
-
-
-# Dotfiles
 
 HOSTNAME=$(hostname -f)
 INPUTRC=${HOME}/.inputrc
@@ -44,14 +39,10 @@ done
 
 source $ZSH/oh-my-zsh.sh
 
-# Auto-completion
-
 typeset -aU path
 
 autoload -Uz compinit && compinit
 autoload -Uz colors && colors
-
-# Aliases
 
 alias vim=$VIM
 alias vi=$VIM
@@ -72,16 +63,12 @@ alias gitd="git diff"
 alias gitl="git lg"
 alias gita="git add ."
 
-# NVM
-
 source /opt/homebrew/opt/nvm/nvm.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 export GPG_TTY=$(tty)
-
-# PNPM
 
 export PNPM_HOME="/Users/amatyas/Library/pnpm"
 
@@ -90,12 +77,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# FZF
-
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
---color=fg:#c0caf5,bg:#1a1b26,hl:#ff9e64 \
---color=fg+:#c0caf5,bg+:#292e42,hl+:#ff9e64 \
---color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff \
---color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a"
+--color=fg:#c0caf5,bg:#1a1b26,hl:#33FF99 \
+--color=fg+:#c0caf5,bg+:#292e42,hl+:#33FF99 \
+--color=info:#666666,prompt:#444444,pointer:#444444 \
+--color=marker:#33FF99,spinner:#33FF99,header:#33FF99"
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

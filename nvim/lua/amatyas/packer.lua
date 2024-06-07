@@ -46,21 +46,21 @@ return require('packer').startup(function(use)
     priority = 1000,
     opts = {},
   }
-  use({
-    "epwalsh/obsidian.nvim",
-    tag = "*", 
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require("obsidian").setup({
-        workspaces = {
-          {
-            name = "default",
-            path = "~/Documents/Obsidian Vault",
-          },
-        },
-      })
-    end,
-  })
+  --use({
+  --  "epwalsh/obsidian.nvim",
+  --  tag = "*",
+  --  requires = {
+  --    "nvim-lua/plenary.nvim",
+  --  },
+  --  config = function()
+  --    require("obsidian").setup({
+  --      workspaces = {
+  --        {
+  --          name = "default",
+  --          path = "~/Documents/Obsidian Vault",
+  --        },
+  --      },
+  --    })
+  --  end,
+  --})
 end)
