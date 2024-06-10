@@ -59,16 +59,22 @@ require('tokyonight').setup({
       fg = "#666666"
     }
     hl.NeoTreeGitModified = {
-      fg = "#FFD700"
+      fg = "#FF9933"
     }
     hl.NeoTreeGitUntracked = {
-      fg = "#FF0000"
+      fg = "#FF3333"
     }
     hl.NeoTreeGitStaged = {
       fg = "#33FF99"
     }
     hl.NeoTreeFileName = {
-      fg = "#FFFFFF"
+      fg = "#33FF99"
+    }
+    hl.NvimTreeFolderName = {
+      fg = "#AAAAAA"
+    }
+    hl.NvimTreeRootFolder = {
+      fg = "#AAAAAA"
     }
   end,
 })
@@ -81,6 +87,14 @@ function ColorMyPencils(color)
   vim.api.nvim_set_hl(0, 'LineNr', { fg = '#AAAAAA', bg = 'none' })
   vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
   vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#666666', bold = true })
+  vim.cmd([[
+    highlight! link NeoTreeDirectoryIcon NvimTreeFolderIcon
+    highlight! link NeoTreeDirectoryName NvimTreeFolderName
+    highlight! link NeoTreeSymbolicLinkTarget NvimTreeSymlink
+    highlight! link NeoTreeRootName NvimTreeRootFolder
+    highlight! link NeoTreeDirectoryName NvimTreeOpenedFolderName
+    highlight! link NeoTreeFileNameOpened NvimTreeOpenedFile
+  ]])
   vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#666666', bold = true })
 end
 
