@@ -47,6 +47,29 @@ require('tokyonight').setup({
       bg = c.bg_dark,
       fg = c.bg_dark,
     }
+    hl.NeoTreeNormal = {
+      bg = "#000000",
+      fg = "#FFFFFF",
+    }
+    hl.NeoTreeNormalNC = {
+      bg = "#000000",
+      fg = "#FFFFFF",
+    }
+    hl.NeoTreeDimText = {
+      fg = "#666666"
+    }
+    hl.NeoTreeGitModified = {
+      fg = "#FFD700"
+    }
+    hl.NeoTreeGitUntracked = {
+      fg = "#FF0000"
+    }
+    hl.NeoTreeGitStaged = {
+      fg = "#33FF99"
+    }
+    hl.NeoTreeFileName = {
+      fg = "#FFFFFF"
+    }
   end,
 })
 

@@ -46,6 +46,15 @@ return require('packer').startup(function(use)
     priority = 1000,
     opts = {},
   }
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    }
+  }
   --use({
   --  "epwalsh/obsidian.nvim",
   --  tag = "*",
