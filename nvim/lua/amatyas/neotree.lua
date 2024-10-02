@@ -1,6 +1,11 @@
 require("neo-tree").setup({
   window = {
     position = "current",
+    mappings = {
+      ['e'] = function() vim.api.nvim_exec('Neotree focus filesystem left', true) end,
+      ['b'] = function() vim.api.nvim_exec('Neotree focus buffers left', true) end,
+      ['g'] = function() vim.api.nvim_exec('Neotree focus git_status left', true) end,
+    },
   },
   source_selection = {
     highlight_tab = "NeoTreeTabInactive",
@@ -9,7 +14,7 @@ require("neo-tree").setup({
     highlight_separator = "NeoTreeTabSeparatorInactive",
     highlight_separator_active = "NeoTreeTabSeparatorActive",
   },
-   filesystem = {
+  filesystem = {
     components = {
       harpoon_index = function(config, node, _)
         local Marked = require("harpoon.mark")
@@ -17,7 +22,7 @@ require("neo-tree").setup({
         local success, index = pcall(Marked.get_index_of, path)
         if success and index and index > 0 then
           return {
-            text = string.format("%d ", index), -- <-- Add your favorite harpoon like arrow here
+            text = string.format("%d ", index),
             highlight = config.highlight or "NeoTreeDirectoryIcon",
           }
         else
@@ -30,10 +35,10 @@ require("neo-tree").setup({
     renderers = {
       file = {
         { "icon" },
-        { "name", use_git_status_colors = true },
-        { "harpoon_index" }, --> This is what actually adds the component in where you want it
+        { "name",         use_git_status_colors = true },
+        { "harpoon_index" },
         { "diagnostics" },
-        { "git_status", highlight = "NeoTreeDimText" },
+        { "git_status",   highlight = "NeoTreeDimText" },
       },
     },
   },

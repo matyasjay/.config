@@ -77,10 +77,19 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
---color=fg:#c0caf5,bg:#1a1b26,hl:#33FF99 \
---color=fg+:#c0caf5,bg+:#292e42,hl+:#33FF99 \
---color=info:#666666,prompt:#444444,pointer:#444444 \
---color=marker:#33FF99,spinner:#33FF99,header:#33FF99"
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#33ff99,bg:#121212,hl:#33ff99 --color=fg+:#33ff00,bg+:#262626,hl+:#33ff00 --color=info:#666666,prompt:#d7005f,pointer:#af5fff --color=marker:#87ff00,spinner:#af5fff,header:#ffffff'
+# export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+# --color=fg:#c0caf5,bg:#1a1b26,hl:#33FF99 \
+# --color=fg+:#c0caf5,bg+:#292e42,hl+:#33FF99 \
+# --color=info:#666666,prompt:#444444,pointer:#444444 \
+# --color=marker:#33FF99,spinner:#33FF99,header:#33FF99"
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# pnpm
+export PNPM_HOME="/Users/amatyas/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
