@@ -16,7 +16,7 @@ OS_NAME=$(uname)
 SSL_CERT_FILE=${HOME}/cacert.pem
 USER_LANGUAGE="en_GB.UTF-8"
 USER=$(whoami)
-VIM="nvim"
+VIM="~/Downloads/nvim-macos-arm64/bin/nvim"
 
 export ARCHFLAGS="-arch ${OS_ARCH}"
 export DOTFILES_VERSION='0.2.468'
@@ -69,13 +69,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 export GPG_TTY=$(tty)
-
-export PNPM_HOME="/Users/amatyas/Library/pnpm"
-
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#33ff99,bg:#121212,hl:#33ff99 --color=fg+:#33ff00,bg+:#262626,hl+:#33ff00 --color=info:#666666,prompt:#d7005f,pointer:#af5fff --color=marker:#87ff00,spinner:#af5fff,header:#ffffff'
 # export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
