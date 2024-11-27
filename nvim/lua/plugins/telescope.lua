@@ -12,6 +12,7 @@ local M = {
           },
           flex = {
             width = 0.5,
+            previewer = true,
             preview_cutoff = 1
           }
         },

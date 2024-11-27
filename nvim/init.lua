@@ -1,3 +1,5 @@
+-- Globals
+
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
@@ -32,23 +34,45 @@ vim.opt.updatetime = 60
 vim.opt.colorcolumn = "80"
 
 vim.diagnostic.config({
-    float = {
-        source = true,
-        show_header = true,
-        focusable = false,
-    },
+	float = {
+		source = true,
+		show_header = true,
+		focusable = false,
+	},
 })
 
-vim.g.lazyvim_picker = 'telescope'
+vim.g.lazyvim_picker = "telescope"
 
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.g.netrw_browse_split = 0
 vim.g.netrw_keepdir = 0
-vim.g.netrw_list_hide = 'DS_Store'
+vim.g.netrw_list_hide = "DS_Store"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+-- New file
+
+vim.api.nvim_create_user_command("NewFile", function(args)
+	vim.cmd("enew")
+	vim.cmd("%d")
+	vim.cmd("w " .. args.args)
+end, {
+	nargs = 1,
+	complete = "file",
+})
+
+vim.keymap.set("n", "<C-N>", function()
+	local filename = vim.fn.input("New file: ", "", "file")
+	if filename ~= "" then
+		vim.cmd("NewFile " .. filename)
+	else
+		print("No file name provided")
+	end
+end, { noremap = true, silent = false })
+
+-- Remaps
 
 vim.keymap.set("n", "<Up>", "<nop>")
 vim.keymap.set("n", "<Down>", "<nop>")
@@ -80,37 +104,46 @@ vim.keymap.set("n", "<leader>d", ":lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "<leader>b", ":lua vim.diagnostic.goto_prev()<CR>")
 vim.keymap.set("n", "<leader>n", ":lua vim.diagnostic.goto_next()<CR>")
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("so")
+	vim.cmd("so")
 end)
 
 vim.keymap.set("n", "<C-s>", function()
-  vim.cmd.Prettier()
-  vim.cmd("w")
+	local format = vim.bo.filetype
+	if format == "neo-tree" then
+		return
+	end
+	if format == "lua" or format == "luau" then
+		require("stylua").format()
+	end
+	vim.cmd.Prettier()
+	vim.cmd("w")
 end)
+
+-- Lazy
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out,                            "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
 
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  spec = { { import = "plugins" } },
-  install = { colorscheme = { "tokyonight-night" } },
-  checker = { enabled = true },
+	spec = { { import = "plugins" } },
+	install = { colorscheme = { "tokyonight-night" } },
+	checker = { enabled = true },
 })
