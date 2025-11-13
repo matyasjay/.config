@@ -33,37 +33,34 @@ local M = {
 		on_highlights = function(hl, c)
 			hl["@comment"] = { fg = "#AAAAAA" }
 			hl["@keyword"] = { fg = "#F093FF", style = { italic = false } }
-			hl.TelescopeNormal = { bg = c.bg_dark, fg = c.fg_dark }
-			hl.TelescopeBorder = { bg = c.bg_dark, fg = c.bg_dark }
-			hl.TelescopePromptNormal = { bg = "#000000" }
-			hl.TelescopePromptBorder = { bg = "#000000", fg = "#000000" }
-			hl.TelescopePromptTitle = { bg = "#000000", fg = "#000000" }
-			hl.TelescopePreviewTitle = { bg = c.bg_dark, fg = c.bg_dark }
-			hl.TelescopeResultsTitle = { bg = c.bg_dark, fg = c.bg_dark }
-			hl.NeoTreeNormal = { bg = "none" }
-			hl.NeoTreeNormalNC = { bg = "none" }
-			hl.NeoTreeWinSeparator = { bg = "none", fg = c.fg_dark }
-			hl.NeoTreeEndOfBuffer = { bg = "none" }
-			hl.NeoTreeDimText = { fg = "#999999" }
-			hl.NeoTreeGitModified = { fg = "#FF9933" }
-			hl.NeoTreeGitUntracked = { fg = "#FF3333" }
-			hl.NeoTreeGitStaged = { fg = "#33FF99" }
-			hl.NeoTreeFileName = { fg = "#33FF99" }
-			hl.NvimTreeFolderName = { fg = "#AAAAAA" }
-			hl.NvimTreeRootFolder = { fg = "#ffffff" }
-			hl.NeoTreeNormal = { bg = "none" }
-			hl.NeoTreeNormalNC = { bg = "none" }
 			hl.NeoTreeCursorLine = { bg = "none" }
-			hl.NeoTreeEndOfBuffer = { bg = "none" }
-			hl.NeoTreeDirectoryName = { bg = "none" }
+			hl.NeoTreeDimText = { fg = "#999999" }
 			hl.NeoTreeDirectoryIcon = { bg = "none" }
-			hl.NeoTreeFileName = { bg = "none" }
+			hl.NeoTreeDirectoryName = { fg = "#AAAAAA", bg = "none" }
+			hl.NeoTreeEndOfBuffer = { bg = "none" }
 			hl.NeoTreeFileIcon = { bg = "none" }
-			hl.NeoTreeIndentMarker = { bg = "none" }
+			hl.NeoTreeFileName = { bg = "none" }
+			hl.NeoTreeFileName = { fg = "#33FF99" }
+			hl.NeoTreeGitAdded = { bg = "none" }
 			hl.NeoTreeGitDeleted = { bg = "none" }
 			hl.NeoTreeGitModified = { bg = "none" }
-			hl.NeoTreeGitAdded = { bg = "none" }
+			hl.NeoTreeGitModified = { fg = "#FF9933" }
 			hl.NeoTreeGitStaged = { bg = "none" }
+			hl.NeoTreeGitStaged = { fg = "#33FF99" }
+			hl.NeoTreeGitUntracked = { fg = "#FF3333" }
+			hl.NeoTreeIndentMarker = { bg = "none" }
+			hl.NeoTreeNormal = { fg = "#AAAAAA", bg = "none" }
+			hl.NeoTreeNormalNC = { bg = "none" }
+			hl.NeoTreeWinSeparator = { bg = "none", fg = c.fg_dark }
+			hl.NvimTreeFolderName = { fg = "#AAAAAA" }
+			hl.NvimTreeRootFolder = { fg = "#AAAAAA" }
+			hl.TelescopeBorder = { bg = "#33FF99", fg = c.bg_dark }
+			hl.TelescopeNormal = { bg = c.bg_dark, fg = c.fg_dark }
+			hl.TelescopePreviewTitle = { bg = c.bg_dark, fg = c.bg_dark }
+			hl.TelescopePromptBorder = { bg = "#000000", fg = "#000000" }
+			hl.TelescopePromptNormal = { bg = "#000000" }
+			hl.TelescopePromptTitle = { bg = "#000000", fg = "#000000" }
+			hl.TelescopeResultsTitle = { bg = c.bg_dark, fg = c.bg_dark }
 		end,
 	},
 }
