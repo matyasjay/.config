@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="essembeh"
+ZSH_THEME="Gozilla"
 
 plugins=(
   git
@@ -63,17 +63,21 @@ alias gitd="git diff"
 alias gitl="git lg"
 alias gita="git add ."
 
+alias pgstop="sudo -u postgres pg_ctl -D /Library/PostgreSQL/16/data stop"
+alias pgstart="sudo -u postgres pg_ctl -D /Library/PostgreSQL/16/data start"
+
 source /opt/homebrew/opt/nvm/nvm.sh
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
 export GPG_TTY=$(tty)
 
-export FZF_DEFAULT_OPTS="--color=fg:#C0CAF5,bg:#16161E,hl:#C0CAF5 \
-  --color=fg+:#C0CAF5,bg+:#262626,hl+:#C0CAF5 \
-  --color=info:#666666,prompt:#d7005f,pointer:#af5fff \
-  --color=marker:#C0CAF5,spinner:#af5fff,header:#ffffff""
+export FZF_DEFAULT_OPTS="--color=fg:#FFDB58,bg:#000000,hl:#FFDB58 \
+  --color=fg+:#FFDB58,bg+:#262626,hl+:#FFDB58 \
+  --color=info:#666666,prompt:#d7005f,pointer:#FFDB58 \
+  --color=marker:#FFDB58,spinner:#FFDB58,header:#ffffff""
 
 # export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 # --color=fg:#c0caf5,bg:#1a1b26,hl:#33FF99 \
@@ -83,10 +87,14 @@ export FZF_DEFAULT_OPTS="--color=fg:#C0CAF5,bg:#16161E,hl:#C0CAF5 \
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export PATH=$PATH:~/.local/share/rojo
+
 export PNPM_HOME="/Users/amatyas/Library/pnpm"
+
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-export PATH=$PATH:~/.local/share/rojo
+COREPACK_ENABLE_AUTO_PIN=0
+corepack enable > /dev/null 2>&1

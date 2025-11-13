@@ -1,5 +1,12 @@
 -- Globals
 
+vim.cmd([[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]])
+
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
@@ -31,7 +38,9 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 60
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = ""
+
+vim.opt.fillchars:append({ eob = " " })
 
 vim.diagnostic.config({
 	float = {
