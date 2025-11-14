@@ -1,4 +1,4 @@
-local M = {
+return {
 	"telescope.nvim",
 	branch = "0.1.x",
 	config = function()
@@ -33,4 +33,3 @@ local M = {
 	end,
 }
 
-return { M }

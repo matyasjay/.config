@@ -1,5 +1,3 @@
--- Globals
-
 vim.cmd([[
   highlight Normal guibg=none
   highlight NonText guibg=none
@@ -56,7 +54,7 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.g.netrw_browse_split = 0
 vim.g.netrw_keepdir = 0
-vim.g.netrw_list_hide = "DS_Store"
+vim.g.netrw_list_hide = ".DS_Store"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -125,19 +123,18 @@ vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
+vim.keymap.set("n", "<leader>f", function()
+	vim.lsp.buf.format({ async = true })
+end, { desc = "Format buffer" })
+
 vim.keymap.set("n", "<C-s>", function()
-	local format = vim.bo.filetype
-	if format == "neo-tree" then
+	local ft = vim.bo.filetype
+	if ft == "neo-tree" then
 		return
 	end
-	if format == "lua" or format == "luau" then
-		require("stylua").format()
-	end
-	vim.cmd.Prettier()
+	vim.lsp.buf.format({ async = false })
 	vim.cmd("w")
 end)
-
--- Lazy
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 

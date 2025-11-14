@@ -1,4 +1,4 @@
-local M = {
+return {
   {
     "theprimeagen/harpoon",
     config = function()
@@ -13,6 +13,4 @@ local M = {
     end,
   }
 }
-
-return { M }
 
