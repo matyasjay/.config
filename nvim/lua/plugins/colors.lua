@@ -5,12 +5,6 @@ return {
 	config = function()
 		local color = "tokyonight-night"
 		vim.cmd.colorscheme(color)
-		-- nvim default background overwrites
-		--vim.api.nvim_set_hl(0, "Normal", { bg = "#333333" })
-		--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		--vim.api.nvim_set_hl(0, 'LineNr', { fg = '#FFFFFF', bg = 'none' })
-		--vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
-		--vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#666666', bold = true })
 		vim.cmd([[
       highlight! link NeoTreeDirectoryIcon NvimTreeFolderIcon
       highlight! link NeoTreeDirectoryName NvimTreeFolderName

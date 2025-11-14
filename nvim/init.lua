@@ -128,18 +128,13 @@ vim.keymap.set("n", "<leader>f", function()
 end, { desc = "Format buffer" })
 
 vim.keymap.set("n", "<C-s>", function()
-	local format = vim.bo.filetype
-	if format == "neo-tree" then
+	local ft = vim.bo.filetype
+	if ft == "neo-tree" then
 		return
 	end
-	if format == "lua" or format == "luau" then
-		require("stylua").format()
-	end
-	vim.cmd.Prettier()
+	vim.lsp.buf.format({ async = false })
 	vim.cmd("w")
 end)
-
--- Lazy
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
