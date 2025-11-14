@@ -18,7 +18,7 @@
 --custom_tokyonight.normal.c.bg = '#000000'
 --custom_tokyonight.normal.c.fg = '#FFFFFF'
 
-local M = {
+return {
 	"nvim-lualine/lualine.nvim",
 	opts = {
 		options = {
@@ -80,5 +80,3 @@ local M = {
 		end,
 	},
 }
-
-return { M }

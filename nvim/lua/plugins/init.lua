@@ -3,7 +3,6 @@ return {
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
-	"VonHeikemen/lsp-zero.nvim",
 	"nvim-lua/plenary.nvim",
 	"nvim-telescope/telescope-file-browser.nvim",
 	"MunifTanjim/prettier.nvim",

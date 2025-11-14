@@ -1,4 +1,4 @@
-local M = {
+return {
 	"prettier.nvim",
 	config = function()
 		local null_ls = require("null-ls")
@@ -6,8 +6,11 @@ local M = {
 		local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
 		local event = "BufWritePre"
 		local async = event == "BufWritePost"
-
 		null_ls.setup({
+			sources = {
+				null_ls.builtins.formatting.prettierd,
+				null_ls.builtins.formatting.stylua,
+			},
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then
 					vim.keymap.set("n", "<Leader>f", function()
@@ -33,7 +36,6 @@ local M = {
 				end
 			end,
 		})
-
 		vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 	end,
 	opts = {
@@ -53,6 +55,18 @@ local M = {
 			"yaml",
 		},
 	},
+	{
+		"altermo/ultimate-autopair.nvim",
+		event = { "InsertEnter", "CmdlineEnter" },
+		branch = "v0.6",
+		opts = {
+			--
+		},
+	},
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup({ "*" })
+		end,
+	},
 }
-
-return { M }

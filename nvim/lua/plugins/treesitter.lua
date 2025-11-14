@@ -1,4 +1,4 @@
-local M = {
+return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufReadPre",
@@ -57,5 +57,3 @@ local M = {
 		end,
 	},
 }
-
-return { M }

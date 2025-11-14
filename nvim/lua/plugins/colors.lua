@@ -1,4 +1,4 @@
-local M = {
+return {
 	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
@@ -8,7 +8,7 @@ local M = {
 		-- nvim default background overwrites
 		--vim.api.nvim_set_hl(0, "Normal", { bg = "#333333" })
 		--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		--vim.api.nvim_set_hl(0, 'LineNr', { fg = '#AAAAAA', bg = 'none' })
+		--vim.api.nvim_set_hl(0, 'LineNr', { fg = '#FFFFFF', bg = 'none' })
 		--vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
 		--vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#666666', bold = true })
 		vim.cmd([[
@@ -31,16 +31,15 @@ local M = {
 		transparent = true,
 		sidebars = { "qf", "vista_kind", "terminal", "packer" },
 		on_highlights = function(hl, c)
-			hl["@comment"] = { fg = "#AAAAAA" }
+			hl["@comment"] = { fg = "#FFFFFF" }
 			hl["@keyword"] = { fg = "#F093FF", style = { italic = false } }
 			hl.NeoTreeCursorLine = { bg = "none" }
 			hl.NeoTreeDimText = { fg = "#999999" }
 			hl.NeoTreeDirectoryIcon = { bg = "none" }
-			hl.NeoTreeDirectoryName = { fg = "#AAAAAA", bg = "none" }
+			hl.NeoTreeDirectoryName = { fg = "#FFFFFF", bg = "none" }
 			hl.NeoTreeEndOfBuffer = { bg = "none" }
 			hl.NeoTreeFileIcon = { bg = "none" }
-			hl.NeoTreeFileName = { bg = "none" }
-			hl.NeoTreeFileName = { fg = "#33FF99" }
+			hl.NeoTreeFileName = { fg = "#FFFFFF", bg = "none" }
 			hl.NeoTreeGitAdded = { bg = "none" }
 			hl.NeoTreeGitDeleted = { bg = "none" }
 			hl.NeoTreeGitModified = { bg = "none" }
@@ -49,11 +48,11 @@ local M = {
 			hl.NeoTreeGitStaged = { fg = "#33FF99" }
 			hl.NeoTreeGitUntracked = { fg = "#FF3333" }
 			hl.NeoTreeIndentMarker = { bg = "none" }
-			hl.NeoTreeNormal = { fg = "#AAAAAA", bg = "none" }
+			hl.NeoTreeNormal = { fg = "#FFFFFF", bg = "none" }
 			hl.NeoTreeNormalNC = { bg = "none" }
 			hl.NeoTreeWinSeparator = { bg = "none", fg = c.fg_dark }
-			hl.NvimTreeFolderName = { fg = "#AAAAAA" }
-			hl.NvimTreeRootFolder = { fg = "#AAAAAA" }
+			hl.NvimTreeFolderName = { fg = "#FFFFFF" }
+			hl.NvimTreeRootFolder = { fg = "#FFFFFF" }
 			hl.TelescopeBorder = { bg = "#33FF99", fg = c.bg_dark }
 			hl.TelescopeNormal = { bg = c.bg_dark, fg = c.fg_dark }
 			hl.TelescopePreviewTitle = { bg = c.bg_dark, fg = c.bg_dark }
@@ -64,5 +63,3 @@ local M = {
 		end,
 	},
 }
-
-return { M }
