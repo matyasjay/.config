@@ -74,16 +74,16 @@ export NVM_DIR="$HOME/.nvm"
 
 export GPG_TTY=$(tty)
 
-export FZF_DEFAULT_OPTS="--color=fg:#FFDB58,bg:#000000,hl:#FFDB58 \
-  --color=fg+:#FFDB58,bg+:#262626,hl+:#FFDB58 \
-  --color=info:#666666,prompt:#d7005f,pointer:#FFDB58 \
-  --color=marker:#FFDB58,spinner:#FFDB58,header:#ffffff""
+#export FZF_DEFAULT_OPTS="--color=fg:#c9c9c9,bg:#000000,hl:#c9c9c9 \
+#  --color=fg+:#c9c9c9,bg+:#262626,hl+:#c9c9c9 \
+#  --color=info:#666666,prompt:#262626,pointer:#c9c9c9 \
+#  --color=marker:#c9c9c9,spinner:#c9c9c9,header:#ffffff""
 
-# export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-# --color=fg:#c0caf5,bg:#1a1b26,hl:#33FF99 \
-# --color=fg+:#c0caf5,bg+:#292e42,hl+:#33FF99 \
-# --color=info:#666666,prompt:#444444,pointer:#444444 \
-# --color=marker:#33FF99,spinner:#33FF99,header:#33FF99"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+ --color=fg:#c0caf5,bg:#1a1b26,hl:#33FF99 \
+ --color=fg+:#c0caf5,bg+:#292e42,hl+:#33FF99 \
+ --color=info:#666666,prompt:#444444,pointer:#444444 \
+ --color=marker:#33FF99,spinner:#33FF99,header:#33FF99"
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
