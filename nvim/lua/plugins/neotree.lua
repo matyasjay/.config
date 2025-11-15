@@ -7,6 +7,36 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	opts = {
+		default_component_configs = {
+			indent = {
+				indent_size = 2,
+				padding = 1,
+				with_markers = true,
+				indent_marker = "│",
+				last_indent_marker = "╰",
+				highlight = "NeoTreeIndentMarker",
+			},
+			icon = {
+				folder_closed = "", -- clean folder
+				folder_open = "", -- minimal folder-open
+				folder_empty = "",
+				default = "",
+				highlight = "NeoTreeFileIcon",
+			},
+		},
+		git_status = {
+			symbols = {
+				added = " ",
+				modified = " ",
+				deleted = " ",
+				renamed = " ",
+				untracked = " ",
+				ignored = " ",
+				unstaged = " ",
+				staged = " ",
+				conflict = " ",
+			},
+		},
 		window = {
 			position = "current",
 			mappings = {
@@ -26,6 +56,7 @@ return {
 			highlight_separator_active = "NeoTreeTabSeparatorActive",
 		},
 		filesystem = {
+			follow_current_file = { enabled = true },
 			components = {
 				harpoon_index = function(config, node, _)
 					local Marked = require("harpoon.mark")

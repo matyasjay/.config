@@ -20,40 +20,49 @@ return {
 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 	end,
 	opts = {
-		style = "night",
-		light_style = "night",
 		transparent = true,
-		sidebars = { "qf", "vista_kind", "terminal", "packer" },
+		styles = {
+			sidebars = "transparent",
+			floats = "transparent",
+		},
 		on_highlights = function(hl, c)
-			hl["@comment"] = { fg = "#FFFFFF" }
-			hl["@keyword"] = { fg = "#F093FF", style = { italic = false } }
-			hl.NeoTreeCursorLine = { bg = "none" }
-			hl.NeoTreeDimText = { fg = "#999999" }
-			hl.NeoTreeDirectoryIcon = { bg = "none" }
-			hl.NeoTreeDirectoryName = { fg = "#FFFFFF", bg = "none" }
-			hl.NeoTreeEndOfBuffer = { bg = "none" }
-			hl.NeoTreeFileIcon = { bg = "none" }
-			hl.NeoTreeFileName = { fg = "#FFFFFF", bg = "none" }
-			hl.NeoTreeGitAdded = { bg = "none" }
-			hl.NeoTreeGitDeleted = { bg = "none" }
-			hl.NeoTreeGitModified = { bg = "none" }
-			hl.NeoTreeGitModified = { fg = "#FF9933" }
-			hl.NeoTreeGitStaged = { bg = "none" }
-			hl.NeoTreeGitStaged = { fg = "#33FF99" }
-			hl.NeoTreeGitUntracked = { fg = "#FF3333" }
-			hl.NeoTreeIndentMarker = { bg = "none" }
-			hl.NeoTreeNormal = { fg = "#FFFFFF", bg = "none" }
-			hl.NeoTreeNormalNC = { bg = "none" }
-			hl.NeoTreeWinSeparator = { bg = "none", fg = c.fg_dark }
-			hl.NvimTreeFolderName = { fg = "#FFFFFF" }
-			hl.NvimTreeRootFolder = { fg = "#FFFFFF" }
-			hl.TelescopeBorder = { bg = "#33FF99", fg = c.bg_dark }
-			hl.TelescopeNormal = { bg = c.bg_dark, fg = c.fg_dark }
-			hl.TelescopePreviewTitle = { bg = c.bg_dark, fg = c.bg_dark }
-			hl.TelescopePromptBorder = { bg = "#000000", fg = "#000000" }
-			hl.TelescopePromptNormal = { bg = "#000000" }
-			hl.TelescopePromptTitle = { bg = "#000000", fg = "#000000" }
-			hl.TelescopeResultsTitle = { bg = c.bg_dark, fg = c.bg_dark }
+			local black = "#000000"
+			local border = "#1a1a1a"
+
+			-- Neo-tree
+			-- Indentation guides
+			hl.NeoTreeIndentMarker = { fg = "#1f1f1f" }
+
+			-- Directory names brighter
+			hl.NeoTreeDirectoryName = { fg = c.blue, bold = true }
+
+			-- Folder icons slight accent
+			hl.NeoTreeDirectoryIcon = { fg = c.teal }
+
+			-- Dim git status
+			hl.NeoTreeDimText = { fg = "#3a3a3a" }
+
+			-- Selected line highlight inside Neo-tree
+			hl.NeoTreeCursorLine = { bg = "#111111" }
+
+			-- Normal backgrounds
+			hl.NeoTreeNormal = { bg = "#000000", fg = c.fg }
+			hl.NeoTreeNormalNC = { bg = "#000000" }
+
+			-- GENERAL FLOATS
+			hl.FloatBorder = { fg = border, bg = black }
+			hl.NormalFloat = { bg = black }
+
+			-- Telescope
+			hl.TelescopeBorder = { bg = black, fg = border }
+			hl.TelescopeNormal = { bg = black, fg = c.fg }
+			hl.TelescopeSelection = { bg = "#111111", fg = c.fg }
+			hl.TelescopePromptNormal = { bg = black, fg = c.fg }
+			hl.TelescopePromptBorder = { bg = black, fg = border }
+
+			-- LSP popup borders
+			hl.LspInfoBorder = { fg = border, bg = black }
+			hl.FloatTitle = { fg = c.blue, bg = black }
 		end,
 	},
 }
