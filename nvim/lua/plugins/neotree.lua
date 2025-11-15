@@ -17,10 +17,6 @@ return {
 				highlight = "NeoTreeIndentMarker",
 			},
 			icon = {
-				folder_closed = "", -- clean folder
-				folder_open = "", -- minimal folder-open
-				folder_empty = "",
-				default = "",
 				highlight = "NeoTreeFileIcon",
 			},
 		},
@@ -76,9 +72,9 @@ return {
 			},
 			renderers = {
 				file = {
-					{ "harpoon_index" },
 					{ "icon" },
 					{ "name", use_git_status_colors = true },
+					{ "harpoon_index" },
 					{ "diagnostics" },
 					{ "git_status", highlight = "NeoTreeDimText" },
 				},
