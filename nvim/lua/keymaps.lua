@@ -61,3 +61,12 @@ map("n", "<C-s>", function()
 		vim.cmd("w")
 	end
 end)
+
+map("n", "gd", vim.lsp.buf.definition)
+map("n", "K", vim.lsp.buf.hover)
+map("n", "<leader>vws", vim.lsp.buf.workspace_symbol)
+map("n", "<leader>vd", vim.diagnostic.open_float)
+map("n", "<leader>vca", vim.lsp.buf.code_action)
+map("n", "<leader>vrr", vim.lsp.buf.references)
+map("n", "<leader>vrn", vim.lsp.buf.rename)
+map("i", "<C-h>", vim.lsp.buf.signature_help)
