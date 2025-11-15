@@ -11,12 +11,11 @@ return {
 			position = "current",
 			mappings = {
 				["e"] = function()
-					vim.api.nvim_exec("Neotree focus filesystem left", true)
+					vim.cmd("Neotree focus filesystem left", true)
 				end,
 				["b"] = function()
-					vim.api.nvim_exec("Neotree focus buffers left", true)
+					vim.cmd("Neotree focus buffers left", true)
 				end,
-				--['g'] = function() vim.api.nvim_exec('Neotree focus git_status left', true) end,
 			},
 		},
 		source_selection = {
@@ -46,9 +45,9 @@ return {
 			},
 			renderers = {
 				file = {
+					{ "harpoon_index" },
 					{ "icon" },
 					{ "name", use_git_status_colors = true },
-					{ "harpoon_index" },
 					{ "diagnostics" },
 					{ "git_status", highlight = "NeoTreeDimText" },
 				},
