@@ -75,7 +75,7 @@ return {
 			renderers = {
 				file = {
 					{ "icon" },
-					{ "name", use_git_status_colors = true },
+					{ "name", use_git_status_colors = false },
 					{ "harpoon_index" },
 					{ "diagnostics" },
 					{ "git_status", highlight = "NeoTreeDimText" },

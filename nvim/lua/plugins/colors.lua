@@ -26,7 +26,7 @@ return {
 			hl.Folded = { fg = colors.white, bg = "#111111", italic = true }
 
 			hl.DiagnosticSignError = { fg = colors.red, bg = "none" }
-			hl.DiagnosticSignWarn = { fg = "#e0b050", bg = "none" }
+			hl.DiagnosticSignWarn = { fg = colors.warning, bg = "none" }
 			hl.DiagnosticSignInfo = { fg = colors.blue, bg = "none" }
 			hl.DiagnosticSignHint = { fg = colors.cyan, bg = "none" }
 
@@ -77,6 +77,17 @@ return {
 			hl.TelescopePromptBorder = { bg = colors.black, fg = border }
 			hl.TelescopePromptNormal = { bg = colors.black, fg = colors.white }
 			hl.TelescopeSelection = { bg = "#111111", fg = colors.white }
+
+			---------------------------------------------------------------------------
+			-- Git
+			---------------------------------------------------------------------------
+			hl.GitSignsAdd = { fg = colors.cyan }
+			hl.GitSignsChange = { fg = colors.violet }
+			hl.GitSignsDelete = { fg = colors.red }
+
+			hl.NeoTreeGitModified = { fg = colors.violet }
+			hl.NeoTreeGitRenamed = { fg = colors.blue }
+			hl.NeoTreeGitUntracked = { fg = colors.cyan }
 		end,
 	},
 	config = function()

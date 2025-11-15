@@ -6,4 +6,5 @@ return {
 	red = "#ff5189",
 	violet = "#d183e8",
 	grey = "#303030",
+	warning = "#e0b050",
 }
