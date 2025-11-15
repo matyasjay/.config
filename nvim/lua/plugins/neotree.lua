@@ -1,3 +1,5 @@
+local colors = require("colors")
+
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
@@ -79,6 +81,12 @@ return {
 					{ "git_status", highlight = "NeoTreeDimText" },
 				},
 			},
+		},
+		highlight = {
+			modified = colors.violet,
+			added = colors.cyan,
+			deleted = colors.red,
+			renamed = colors.blue,
 		},
 	},
 	config = function(_, opts)

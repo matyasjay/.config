@@ -1,12 +1,4 @@
-local colors = {
-	blue = "#80a0ff", -- INSERT
-	cyan = "#79dac8", -- VISUAL
-	black = "#080808",
-	white = "#c6c6c6",
-	red = "#ff5189", -- REPLACE / errors
-	violet = "#d183e8", -- NORMAL
-	grey = "#303030", -- inactive
-}
+local colors = require("colors")
 
 return {
 	"folke/tokyonight.nvim",
@@ -18,7 +10,7 @@ return {
 			sidebars = "transparent",
 			floats = "transparent",
 		},
-		on_highlights = function(hl, c)
+		on_highlights = function(hl, _)
 			local bg = "none"
 			local border = colors.grey
 
@@ -26,6 +18,8 @@ return {
 			-- StatusColumn
 			---------------------------------------------------------------------------
 			hl.LineNr = { fg = colors.white, bg = "none" }
+			hl.LineNrAbove = { fg = colors.grey, bg = "none" }
+			hl.LineNrBelow = { fg = colors.grey, bg = "none" }
 			hl.CursorLineNr = { fg = colors.blue, bg = "none", bold = true }
 
 			hl.FoldColumn = { fg = colors.grey, bg = "none" }
@@ -43,7 +37,7 @@ return {
 			---------------------------------------------------------------------------
 			hl.NeoTreeNormal = { bg = bg, fg = colors.white }
 			hl.NeoTreeNormalNC = { bg = bg, fg = colors.white }
-			hl.NeoTreeDirectoryName = { fg = colors.blue, bold = true }
+			hl.NeoTreeDirectoryName = { fg = colors.white, bold = true }
 			hl.NeoTreeDirectoryIcon = { fg = colors.cyan }
 			hl.NeoTreeIndentMarker = { fg = colors.grey }
 			hl.NeoTreeCursorLine = { bg = "#111111" }
