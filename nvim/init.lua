@@ -10,6 +10,7 @@ require("ui")
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",
 	callback = function()
+		local colors = require("colors")
 		local groups = {
 			"Normal",
 			"NormalNC",
@@ -29,12 +30,21 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 			"TelescopeResultsNormal",
 			"NvimTreeNormal",
 			"NvimTreeNormalNC",
+			"NeoTreeDirectoryName",
 			"EndOfBuffer",
 		}
-
 		for _, g in ipairs(groups) do
 			vim.api.nvim_set_hl(0, g, { bg = "none" })
 		end
+		vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", {
+			fg = colors.white,
+			bold = true,
+		})
+		vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = colors.cyan })
+		vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#404040" })
+		vim.api.nvim_set_hl(0, "NeoTreeExpander", { fg = "#606060" })
+		vim.api.nvim_set_hl(0, "NeoTreeHiddenByName", { fg = "#5a5a5a" })
+		vim.api.nvim_set_hl(0, "NeoTreeDotfile", { fg = "#5a5a5a" })
 	end,
 })
 
