@@ -8,6 +8,7 @@ simple-update-notifier
 yarn
 tmux/plugins
 zed
+undo
 
 !git/
 !htop/

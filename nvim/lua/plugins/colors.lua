@@ -1,28 +1,17 @@
+local colors = {
+	blue = "#80a0ff", -- INSERT
+	cyan = "#79dac8", -- VISUAL
+	black = "#080808",
+	white = "#c6c6c6",
+	red = "#ff5189", -- REPLACE / errors
+	violet = "#d183e8", -- NORMAL
+	grey = "#303030", -- inactive
+}
+
 return {
 	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
-	config = function()
-		local color = "tokyonight-night"
-		vim.cmd.colorscheme(color)
-		vim.cmd([[
-      highlight! link NeoTreeDirectoryIcon NvimTreeFolderIcon
-      highlight! link NeoTreeDirectoryName NvimTreeFolderName
-      highlight! link NeoTreeSymbolicLinkTarget NvimTreeSymlink
-      highlight! link NeoTreeRootName NvimTreeRootFolder
-      highlight! link NeoTreeDirectoryName NvimTreeOpenedFolderName
-      highlight! link NeoTreeFileNameOpened NvimTreeOpenedFile
-    ]])
-		vim.api.nvim_set_hl(0, "LineNr", { fg = "#FFFFFF", bold = true })
-		vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#BD93F9", bold = true })
-		vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#BD93F9", bold = true })
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = "#ffffff", bg = "none" })
-		vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = "#BD93F9", bg = "none" })
-	end,
 	opts = {
 		transparent = true,
 		styles = {
@@ -30,25 +19,74 @@ return {
 			floats = "transparent",
 		},
 		on_highlights = function(hl, c)
-			local black = "#000000"
-			local border = "#1a1a1a"
-			hl.NewTreeFileIcon = { fg = "#76aafc" }
-			hl.NeoTreeIndentMarker = { fg = "#1f1f1f" }
-			hl.NeoTreeDirectoryName = { fg = c.blue, bold = true }
-			hl.NeoTreeDirectoryIcon = { fg = c.teal }
-			hl.NeoTreeDimText = { fg = "#3a3a3a" }
+			local bg = "none"
+			local border = colors.grey
+
+			---------------------------------------------------------------------------
+			-- StatusColumn
+			---------------------------------------------------------------------------
+			hl.LineNr = { fg = colors.white, bg = "none" }
+			hl.CursorLineNr = { fg = colors.blue, bg = "none", bold = true }
+
+			hl.FoldColumn = { fg = colors.grey, bg = "none" }
+			hl.Folded = { fg = colors.white, bg = "#111111", italic = true }
+
+			hl.DiagnosticSignError = { fg = colors.red, bg = "none" }
+			hl.DiagnosticSignWarn = { fg = "#e0b050", bg = "none" }
+			hl.DiagnosticSignInfo = { fg = colors.blue, bg = "none" }
+			hl.DiagnosticSignHint = { fg = colors.cyan, bg = "none" }
+
+			hl.StatusColumnBorder = { fg = colors.violet, bg = "none" }
+
+			---------------------------------------------------------------------------
+			-- Neo-tree
+			---------------------------------------------------------------------------
+			hl.NeoTreeNormal = { bg = bg, fg = colors.white }
+			hl.NeoTreeNormalNC = { bg = bg, fg = colors.white }
+			hl.NeoTreeDirectoryName = { fg = colors.blue, bold = true }
+			hl.NeoTreeDirectoryIcon = { fg = colors.cyan }
+			hl.NeoTreeIndentMarker = { fg = colors.grey }
 			hl.NeoTreeCursorLine = { bg = "#111111" }
-			hl.NeoTreeNormal = { bg = "#000000", fg = c.fg }
-			hl.NeoTreeNormalNC = { bg = "#000000" }
-			hl.FloatBorder = { fg = border, bg = black }
-			hl.NormalFloat = { bg = black }
-			hl.TelescopeBorder = { bg = black, fg = border }
-			hl.TelescopeNormal = { bg = black, fg = c.fg }
-			hl.TelescopeSelection = { bg = "#111111", fg = c.fg }
-			hl.TelescopePromptNormal = { bg = black, fg = c.fg }
-			hl.TelescopePromptBorder = { bg = black, fg = border }
-			hl.LspInfoBorder = { fg = border, bg = black }
-			hl.FloatTitle = { fg = c.blue, bg = black }
+
+			hl.NeoTreeTabActive = { fg = colors.black, bg = colors.violet }
+			hl.NeoTreeTabInactive = { fg = colors.white, bg = colors.grey }
+			hl.NeoTreeTabSeparatorActive = { fg = colors.violet, bg = bg }
+			hl.NeoTreeTabSeparatorInactive = { fg = colors.grey, bg = bg }
+
+			hl.NeoTreeGitAdded = { fg = colors.cyan }
+			hl.NeoTreeGitStaged = { fg = colors.cyan }
+			hl.NeoTreeGitUntracked = { fg = colors.cyan }
+			hl.NeoTreeGitModified = { fg = colors.violet }
+			hl.NeoTreeGitUnstaged = { fg = colors.violet }
+			hl.NeoTreeGitRenamed = { fg = colors.blue }
+			hl.NeoTreeGitDeleted = { fg = colors.red }
+			hl.NeoTreeGitConflict = { fg = colors.red }
+			hl.NeoTreeGitIgnored = { fg = colors.grey }
+
+			hl.GitSignsAdd = { fg = colors.cyan }
+			hl.GitSignsChange = { fg = colors.violet }
+			hl.GitSignsDelete = { fg = colors.red }
+
+			---------------------------------------------------------------------------
+			-- Floats
+			---------------------------------------------------------------------------
+			hl.NormalFloat = { bg = colors.black, fg = colors.white }
+			hl.FloatBorder = { bg = colors.black, fg = border }
+			hl.FloatTitle = { fg = colors.blue, bg = colors.black }
+			hl.LspInfoBorder = { bg = colors.black, fg = border }
+
+			---------------------------------------------------------------------------
+			-- Telescope
+			---------------------------------------------------------------------------
+			hl.TelescopeNormal = { bg = colors.black, fg = colors.white }
+			hl.TelescopeBorder = { bg = colors.black, fg = border }
+			hl.TelescopePromptBorder = { bg = colors.black, fg = border }
+			hl.TelescopePromptNormal = { bg = colors.black, fg = colors.white }
+			hl.TelescopeSelection = { bg = "#111111", fg = colors.white }
 		end,
 	},
+	config = function()
+		local color = "tokyonight-night"
+		vim.cmd.colorscheme(color)
+	end,
 }

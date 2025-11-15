@@ -17,7 +17,6 @@ return {
 	"wesleimp/stylua.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"williamboman/mason.nvim",
-	"Biomejs/biome",
 	"nvimtools/none-ls.nvim",
 	"nvimtools/none-ls-extras.nvim",
 }

@@ -1,0 +1,63 @@
+local map = vim.keymap.set
+
+map("n", "<C-N>", function()
+	local filename = vim.fn.input("New file: ", "", "file")
+	if filename ~= "" then
+		vim.cmd("NewFile " .. filename)
+	end
+end)
+
+map("n", "<Up>", "<nop>")
+map("n", "<Down>", "<nop>")
+map("n", "<Left>", "<nop>")
+map("n", "<Right>", "<nop>")
+
+map("n", "<leader>pv", vim.cmd.Neotree)
+
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+map("n", "J", "mzJ`z")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
+map("x", "<leader>p", [["_dP]])
+map({ "n", "v" }, "<leader>y", [["+y]])
+map("n", "<leader>Y", [["+Y]])
+map({ "n", "v" }, "<leader>d", [["_d]])
+
+map("i", "<C-c>", "<Esc>")
+map("n", "Q", "<nop>")
+
+map("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/scripts/tmux-sessionizer<CR>")
+
+map("n", "<leader>f", function()
+	vim.lsp.buf.format({ async = true })
+end)
+
+map("n", "<C-k>", "<cmd>cnext<CR>zz")
+map("n", "<C-j>", "<cmd>cprev<CR>zz")
+map("n", "<leader>k", "<cmd>lnext<CR>zz")
+map("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+map("n", "<leader>d", vim.diagnostic.open_float)
+map("n", "<leader>b", vim.diagnostic.goto_prev)
+map("n", "<leader>n", vim.diagnostic.goto_next)
+map("n", "<leader>u", vim.cmd.UndotreeToggle)
+map("n", "<leader>gs", vim.cmd.Git)
+
+map("n", "<leader><leader>", function()
+	vim.cmd("so")
+end)
+
+map("n", "<C-s>", function()
+	if vim.bo.filetype ~= "neo-tree" then
+		vim.lsp.buf.format({ async = false })
+		vim.cmd("w")
+	end
+end)
