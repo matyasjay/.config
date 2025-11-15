@@ -19,11 +19,11 @@ k9s:
   ui:
     enableMouse: false
     # Set to true to hide K9s header. Default false
-    headless: false
+    headless: true
     # Set to true to hide the K9S logo Default false
-    logoless: false
+    logoless: true
     # Set to true to hide K9s crumbs. Default false
-    crumbsless: false
+    crumbsless: true
     # Set to true to suppress the K9s splash screen on start. Default false. Note that for larger clusters or higher latency connections, there may be no resources visible initially until local caches have finished populating.
     splashless: false
     # Toggles icons display as not all terminal support these chars. Default: true
@@ -31,7 +31,7 @@ k9s:
     # Toggles reactive UI. This option provide for watching on disk artifacts changes and update the UI live Defaults to false.
     reactive: false
     # By default all contexts will use the dracula skin unless explicitly overridden in the context config file.
-    skin: dracula # => assumes the file skins/dracula.yaml is present in the  $XDG_DATA_HOME/k9s/skins directory
+    skin: transparent # => assumes the file skins/dracula.yaml is present in the  $XDG_DATA_HOME/k9s/skins directory
     # Allows to set certain views default fullscreen mode. (yaml, helm history, describe, value_extender, details, logs) Default false
     defaultsToFullScreen: false
     # Show full resource GVR (Group/Version/Resource) vs just R. Default: false.
