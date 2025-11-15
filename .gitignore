@@ -9,6 +9,7 @@ yarn
 tmux/plugins
 zed
 undo
+pgcli/log
 
 !git/
 !htop/
