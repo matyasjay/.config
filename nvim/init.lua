@@ -7,11 +7,28 @@ require("keymaps")
 require("commands")
 require("ui")
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "fugitive",
+	callback = function()
+		vim.cmd("resize 10")
+		vim.wo.winhighlight = "Normal:FugitiveNormal,NormalNC:FugitiveNormalNC"
+
+		-- OR: make it take 40% of the screen height
+		-- local height = math.floor(vim.o.lines * 0.4)
+		-- vim.cmd("resize " .. height)
+
+		-- OR: for vertical splits
+		-- vim.cmd("vertical resize 80")
+	end,
+})
+
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",
 	callback = function()
-		local colors = require("colors")
-		local groups = {
+		---------------------------------------------------------------
+		-- NO BACKGROUND
+		---------------------------------------------------------------
+		for _, g in ipairs({
 			"Normal",
 			"NormalNC",
 			"NormalFloat",
@@ -32,20 +49,20 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 			"NvimTreeNormalNC",
 			"NeoTreeDirectoryName",
 			"EndOfBuffer",
-		}
-		for _, g in ipairs(groups) do
+		}) do
 			vim.api.nvim_set_hl(0, g, { bg = "none" })
 		end
-		vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", {
-			fg = colors.white,
-			bold = true,
-		})
-		vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = colors.violet })
+
+		local colors = require("colors")
+
+		---------------------------------------------------------------
+		-- NEOTREE
+		---------------------------------------------------------------
 		vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#404040" })
 		vim.api.nvim_set_hl(0, "NeoTreeExpander", { fg = "#606060" })
 		vim.api.nvim_set_hl(0, "NeoTreeHiddenByName", { fg = "#5a5a5a" })
 		vim.api.nvim_set_hl(0, "NeoTreeDotfile", { fg = "#5a5a5a" })
-		---
+
 		---------------------------------------------------------------
 		-- BASE BACKGROUND / NORMAL
 		---------------------------------------------------------------
@@ -55,13 +72,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#111111" })
 
 		---------------------------------------------------------------
-		-- DIRECTORY & FILE ICONS
+		-- DIRECTORY
 		---------------------------------------------------------------
-		vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = colors.white, bold = true })
-		vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = colors.cyan })
+		vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", {
+			fg = colors.white,
+			bold = true,
+		})
+		vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = colors.violet })
 		vim.api.nvim_set_hl(0, "NeoTreeFileIcon", { fg = colors.violet })
-
-		-- Hidden / ignored fade
 		vim.api.nvim_set_hl(0, "NeoTreeHiddenByName", { fg = "#5a5a5a" })
 		vim.api.nvim_set_hl(0, "NeoTreeDotfile", { fg = "#5a5a5a" })
 
@@ -70,8 +88,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		---------------------------------------------------------------
 		vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#404040" })
 		vim.api.nvim_set_hl(0, "NeoTreeExpander", { fg = "#606060" })
-
-		-- Last leaf marker (╰)
 		vim.api.nvim_set_hl(0, "NeoTreeIndentMini", { fg = "#505050" })
 
 		---------------------------------------------------------------
@@ -86,7 +102,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		---------------------------------------------------------------
 		-- GIT STATUS
 		---------------------------------------------------------------
-		-- Symbols
 		vim.api.nvim_set_hl(0, "NeoTreeGitAdded", { fg = colors.cyan })
 		vim.api.nvim_set_hl(0, "NeoTreeGitStaged", { fg = colors.cyan })
 		vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { fg = colors.cyan })
@@ -97,7 +112,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		vim.api.nvim_set_hl(0, "NeoTreeGitConflict", { fg = colors.red })
 		vim.api.nvim_set_hl(0, "NeoTreeGitIgnored", { fg = colors.grey })
 
-		-- File names
 		vim.api.nvim_set_hl(0, "NeoTreeGitAddedName", { fg = colors.cyan })
 		vim.api.nvim_set_hl(0, "NeoTreeGitStagedName", { fg = colors.cyan })
 		vim.api.nvim_set_hl(0, "NeoTreeGitUntrackedName", { fg = colors.cyan })
@@ -130,6 +144,16 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		---------------------------------------------------------------
 		vim.api.nvim_set_hl(0, "NeoTreeSymbolicLinkTarget", { fg = colors.cyan, italic = true })
 		vim.api.nvim_set_hl(0, "NeoTreeDimText", { fg = "#666666" })
+
+		---------------------------------------------------------------
+		-- FUGITIVE
+		---------------------------------------------------------------
+		vim.api.nvim_set_hl(0, "FugitiveNormal", { bg = "#0a0a0a" })
+		vim.api.nvim_set_hl(0, "FugitiveNormalNC", { bg = "#101010" })
+		vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#103010" })
+		vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#301010" })
+		vim.api.nvim_set_hl(0, "DiffChange", { bg = "#202030" })
+		vim.api.nvim_set_hl(0, "DiffText", { bg = "#303060" })
 	end,
 })
 
