@@ -1,5 +1,6 @@
 return {
 	"L3MON4D3/LuaSnip",
+	"MunifTanjim/prettier.nvim",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
@@ -10,6 +11,8 @@ return {
 	"nvim-lua/plenary.nvim",
 	"nvim-telescope/telescope-file-browser.nvim",
 	"nvim-tree/nvim-web-devicons",
+	"nvimtools/none-ls-extras.nvim",
+	"nvimtools/none-ls.nvim",
 	"rafamadriz/friendly-snippets",
 	"saadparwaiz1/cmp_luasnip",
 	"tpope/vim-fugitive",
@@ -17,6 +20,4 @@ return {
 	"wesleimp/stylua.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"williamboman/mason.nvim",
-	"nvimtools/none-ls.nvim",
-	"nvimtools/none-ls-extras.nvim",
 }

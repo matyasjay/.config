@@ -45,8 +45,11 @@ map("n", "<leader>j", "<cmd>lprev<CR>zz")
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+---@diagnostic disable-next-line: deprecated
 map("n", "<leader>d", vim.diagnostic.open_float)
+---@diagnostic disable-next-line: deprecated
 map("n", "<leader>b", vim.diagnostic.goto_prev)
+---@diagnostic disable-next-line: deprecated
 map("n", "<leader>n", vim.diagnostic.goto_next)
 map("n", "<leader>u", vim.cmd.UndotreeToggle)
 map("n", "<leader>gs", vim.cmd.Git)
@@ -57,7 +60,12 @@ end)
 
 map("n", "<C-s>", function()
 	if vim.bo.filetype ~= "neo-tree" then
-		vim.lsp.buf.format({ async = false })
+		if vim.bo.filetype == "lua" or vim.bo.filetype == "luau" then
+			vim.lsp.buf.format({ async = false })
+		else
+			vim.cmd.Prettier()
+			-- or vim.lsp.buf.format({ async = false })
+		end
 		vim.cmd("w")
 	end
 end)
