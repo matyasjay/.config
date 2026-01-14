@@ -91,10 +91,13 @@ return {
 			},
 		},
 		highlight = {
+			normal = colors.white,
+			file = colors.white,
 			modified = colors.violet,
 			added = colors.cyan,
 			deleted = colors.red,
 			renamed = colors.blue,
+			icon = colors.cyan,
 		},
 	},
 	config = function(_, opts)

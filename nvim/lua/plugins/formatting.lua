@@ -12,7 +12,6 @@ return {
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.stylua,
 			},
-
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then
 					vim.keymap.set("n", "<Leader>f", function()

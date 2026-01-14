@@ -1,10 +1,10 @@
 return {
-	blue = "#80a0ff",
-	cyan = "#ea9a97",
+	blue = "#CBF1FF",
+	cyan = "#D0F5C3",
 	black = "#080808",
-	white = "#c6c6c6",
+	white = "#F6F6F6",
 	red = "#ff5189",
-	violet = "#d183e8",
+	violet = "#F6D8FD",
 	grey = "#303030",
 	warning = "#e0b050",
 }

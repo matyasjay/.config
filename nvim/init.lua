@@ -70,16 +70,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none", fg = colors.white })
 		vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = "#111111", bg = "none" })
 		vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#111111" })
+		vim.api.nvim_set_hl(0, "NeoTreeFileName", { bg = "none", fg = colors.white })
 
 		---------------------------------------------------------------
 		-- DIRECTORY
 		---------------------------------------------------------------
-		vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", {
-			fg = colors.white,
-			bold = true,
-		})
-		vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = colors.violet })
-		vim.api.nvim_set_hl(0, "NeoTreeFileIcon", { fg = colors.violet })
+		vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = colors.white })
+		vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = colors.cyan })
+		vim.api.nvim_set_hl(0, "NeoTreeFileIcon", { fg = colors.cyan })
 		vim.api.nvim_set_hl(0, "NeoTreeHiddenByName", { fg = "#5a5a5a" })
 		vim.api.nvim_set_hl(0, "NeoTreeDotfile", { fg = "#5a5a5a" })
 
@@ -94,7 +92,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		-- ROOT TITLE (FLOATISH)
 		---------------------------------------------------------------
 		vim.api.nvim_set_hl(0, "NeoTreeRootName", {
-			fg = colors.violet,
+			fg = colors.cyan,
 			bold = true,
 			italic = true,
 		})
@@ -127,7 +125,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		---------------------------------------------------------------
 		vim.api.nvim_set_hl(0, "NeoTreeTabActive", {
 			fg = colors.black,
-			bg = colors.violet,
+			bg = colors.cyan,
 			bold = true,
 		})
 
@@ -136,14 +134,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 			bg = "#1a1a1a",
 		})
 
-		vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorActive", { fg = colors.violet, bg = "none" })
+		vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorActive", { fg = colors.cyan, bg = "none" })
 		vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorInactive", { fg = "#444444", bg = "none" })
 
 		---------------------------------------------------------------
 		-- SYMBOL DETAILS
 		---------------------------------------------------------------
 		vim.api.nvim_set_hl(0, "NeoTreeSymbolicLinkTarget", { fg = colors.cyan, italic = true })
-		vim.api.nvim_set_hl(0, "NeoTreeDimText", { fg = "#666666" })
+		vim.api.nvim_set_hl(0, "NeoTreeDimText", { fg = "#F0F0F0" })
 
 		---------------------------------------------------------------
 		-- FUGITIVE
