@@ -1,5 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 ZSH_THEME="Gozilla"
 
 plugins=(
@@ -66,6 +68,10 @@ alias gita="git add ."
 alias pgstop="sudo -u postgres pg_ctl -D /Library/PostgreSQL/16/data stop"
 alias pgstart="sudo -u postgres pg_ctl -D /Library/PostgreSQL/16/data start"
 
+alias ls="eza --color=always --long --git --icons=never --group-directories-first"
+
+alias python=python3
+
 source /opt/homebrew/opt/nvm/nvm.sh
 
 export NVM_DIR="$HOME/.nvm"
@@ -74,22 +80,18 @@ export NVM_DIR="$HOME/.nvm"
 
 export GPG_TTY=$(tty)
 
- export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
- --color=fg:#c0caf5,bg:#1a1b26,hl:#D183E8 \
- --color=fg+:#c0caf5,bg+:#292e42,hl+:#D183E8 \
- --color=info:#666666,prompt:#1a1b26,pointer:#444444 \
- --color=marker:#D183E8,spinner:#D183E8,header:#D183E8"
+eval "$(fzf --zsh)"
+source "$HOME/.config/fzf/env.sh"
+source "$HOME/.config/fzf/zsh.sh"
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-export PATH=$PATH:~/.local/share/rojo
+export PATH="/opt/homebrew/bin:$HOME/.local/bin:$PATH"
 
 export PNPM_HOME="/Users/amatyas/Library/pnpm"
-
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+export PATH="$PATH:~/.local/share/rojo:/Users/amatyas/Downloads/worldbanc/private/bin:$PNPM_HOME:$HOME/go/bin"
 
 COREPACK_ENABLE_AUTO_PIN=0
 corepack enable > /dev/null 2>&1
+
+
+. "$HOME/.local/bin/env"

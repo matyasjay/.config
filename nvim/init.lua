@@ -10,7 +10,6 @@ require("ui")
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "fugitive",
 	callback = function()
-		vim.cmd("resize 10")
 		vim.wo.winhighlight = "Normal:FugitiveNormal,NormalNC:FugitiveNormalNC"
 
 		-- OR: make it take 40% of the screen height
@@ -58,18 +57,18 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		---------------------------------------------------------------
 		-- NEOTREE
 		---------------------------------------------------------------
-		vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#404040" })
-		vim.api.nvim_set_hl(0, "NeoTreeExpander", { fg = "#606060" })
-		vim.api.nvim_set_hl(0, "NeoTreeHiddenByName", { fg = "#5a5a5a" })
-		vim.api.nvim_set_hl(0, "NeoTreeDotfile", { fg = "#5a5a5a" })
+		vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = colors.grey })
+		vim.api.nvim_set_hl(0, "NeoTreeExpander", { fg = colors.grey })
+		vim.api.nvim_set_hl(0, "NeoTreeHiddenByName", { fg = colors.grey })
+		vim.api.nvim_set_hl(0, "NeoTreeDotfile", { fg = colors.grey })
 
 		---------------------------------------------------------------
 		-- BASE BACKGROUND / NORMAL
 		---------------------------------------------------------------
 		vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none", fg = colors.white })
 		vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none", fg = colors.white })
-		vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = "#111111", bg = "none" })
-		vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#111111" })
+		vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { fg = colors.black, bg = "none" })
+		vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = colors.bg_alt })
 		vim.api.nvim_set_hl(0, "NeoTreeFileName", { bg = "none", fg = colors.white })
 
 		---------------------------------------------------------------
@@ -78,15 +77,15 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = colors.white })
 		vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = colors.cyan })
 		vim.api.nvim_set_hl(0, "NeoTreeFileIcon", { fg = colors.cyan })
-		vim.api.nvim_set_hl(0, "NeoTreeHiddenByName", { fg = "#5a5a5a" })
-		vim.api.nvim_set_hl(0, "NeoTreeDotfile", { fg = "#5a5a5a" })
+		vim.api.nvim_set_hl(0, "NeoTreeHiddenByName", { fg = colors.grey })
+		vim.api.nvim_set_hl(0, "NeoTreeDotfile", { fg = colors.grey })
 
 		---------------------------------------------------------------
 		-- INDENT MARKERS
 		---------------------------------------------------------------
-		vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = "#404040" })
-		vim.api.nvim_set_hl(0, "NeoTreeExpander", { fg = "#606060" })
-		vim.api.nvim_set_hl(0, "NeoTreeIndentMini", { fg = "#505050" })
+		vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", { fg = colors.grey })
+		vim.api.nvim_set_hl(0, "NeoTreeExpander", { fg = colors.grey })
+		vim.api.nvim_set_hl(0, "NeoTreeIndentMini", { fg = colors.grey })
 
 		---------------------------------------------------------------
 		-- ROOT TITLE (FLOATISH)
@@ -130,28 +129,28 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		})
 
 		vim.api.nvim_set_hl(0, "NeoTreeTabInactive", {
-			fg = "#888888",
-			bg = "#1a1a1a",
+			fg = colors.grey,
+			bg = colors.black,
 		})
 
 		vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorActive", { fg = colors.cyan, bg = "none" })
-		vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorInactive", { fg = "#444444", bg = "none" })
+		vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorInactive", { fg = colors.grey, bg = "none" })
 
 		---------------------------------------------------------------
 		-- SYMBOL DETAILS
 		---------------------------------------------------------------
 		vim.api.nvim_set_hl(0, "NeoTreeSymbolicLinkTarget", { fg = colors.cyan, italic = true })
-		vim.api.nvim_set_hl(0, "NeoTreeDimText", { fg = "#F0F0F0" })
+		vim.api.nvim_set_hl(0, "NeoTreeDimText", { fg = colors.white })
 
 		---------------------------------------------------------------
 		-- FUGITIVE
 		---------------------------------------------------------------
-		vim.api.nvim_set_hl(0, "FugitiveNormal", { bg = "#0a0a0a" })
-		vim.api.nvim_set_hl(0, "FugitiveNormalNC", { bg = "#101010" })
-		vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#103010" })
-		vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#301010" })
-		vim.api.nvim_set_hl(0, "DiffChange", { bg = "#202030" })
-		vim.api.nvim_set_hl(0, "DiffText", { bg = "#303060" })
+		vim.api.nvim_set_hl(0, "FugitiveNormal", { bg = colors.black })
+		vim.api.nvim_set_hl(0, "FugitiveNormalNC", { bg = colors.bg_alt })
+		vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#1B2A1F" })
+		vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#2A1B1F" })
+		vim.api.nvim_set_hl(0, "DiffChange", { bg = "#1C212A" })
+		vim.api.nvim_set_hl(0, "DiffText", { bg = "#2A3042" })
 	end,
 })
 

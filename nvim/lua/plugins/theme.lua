@@ -20,13 +20,13 @@ return {
 			hl.Normal = { bg = "none", fg = colors.white }
 			hl.NormalNC = { bg = "none", fg = colors.white }
 
-			hl.CursorLine = { bg = "#111111" }
-			hl.Visual = { bg = "#222222" }
+			hl.CursorLine = { bg = colors.bg_alt }
+			hl.Visual = { bg = colors.bg_alt }
 
 			hl.LineNr = { fg = colors.grey, bg = "none" }
-			hl.LineNrAbove = { fg = "#505050", bg = "none" }
-			hl.LineNrBelow = { fg = "#505050", bg = "none" }
-			hl.CursorLineNr = { fg = colors.blue, bg = "none", bold = true }
+			hl.LineNrAbove = { fg = colors.grey, bg = "none" }
+			hl.LineNrBelow = { fg = colors.grey, bg = "none" }
+			hl.CursorLineNr = { fg = colors.cyan, bg = "none", bold = true }
 
 			---------------------------------------------------------------------------
 			-- FLOAT WINDOWS (black background + rounded + subtle border)
@@ -53,7 +53,7 @@ return {
 			-- DIAGNOSTIC SIGNS
 			---------------------------------------------------------------------------
 			hl.DiagnosticSignError = { fg = colors.red }
-			hl.DiagnosticSignWarn = { fg = "#e0b050" }
+			hl.DiagnosticSignWarn = { fg = colors.warning }
 			hl.DiagnosticSignInfo = { fg = colors.blue }
 			hl.DiagnosticSignHint = { fg = colors.cyan }
 
@@ -64,7 +64,7 @@ return {
 			hl.TelescopeBorder = { bg = colors.black, fg = colors.grey }
 			hl.TelescopePromptBorder = { bg = colors.black, fg = colors.grey }
 			hl.TelescopePromptNormal = { bg = colors.black, fg = colors.white }
-			hl.TelescopeSelection = { bg = "#111111", fg = colors.white }
+			hl.TelescopeSelection = { bg = colors.bg_alt, fg = colors.white }
 
 			---------------------------------------------------------------------------
 			-- GIT SIGNS

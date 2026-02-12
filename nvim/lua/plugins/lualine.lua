@@ -3,7 +3,7 @@ local colors = require("colors")
 local bubbles_theme = {
 	normal = {
 		a = { fg = colors.black, bg = colors.cyan },
-		b = { fg = colors.white, bg = colors.grey },
+		b = { fg = colors.white, bg = colors.bg_alt },
 		c = { fg = colors.white },
 	},
 
@@ -12,9 +12,9 @@ local bubbles_theme = {
 	replace = { a = { fg = colors.black, bg = colors.red } },
 
 	inactive = {
-		a = { fg = colors.white, bg = colors.black },
-		b = { fg = colors.white, bg = colors.black },
-		c = { fg = colors.white },
+		a = { fg = colors.grey, bg = colors.black },
+		b = { fg = colors.grey, bg = colors.black },
+		c = { fg = colors.grey },
 	},
 }
 

@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+if [[ -r "$HOME/.config/fzf/env.sh" ]]; then
+  source "$HOME/.config/fzf/env.sh"
+fi
 
 if [[ $# -eq 1 ]]; then
     selected=$1
