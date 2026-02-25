@@ -4,7 +4,7 @@ export FZF_DEFAULT_OPTS="
   --layout reverse
   --style full
   --border
-  --padding 1,2
+  --padding 3,2
   --border-label ' Search ' --input-label ' Input ' --header-label ' File Type '
   --preview 'fzf-preview.sh {}'
 
@@ -33,4 +33,4 @@ export FZF_DEFAULT_OPTS="
 
 export FZF_TMUX=1
 
-export FZF_TMUX_OPTS="-p 90%,90%"
+export FZF_TMUX_OPTS="-p 70%,90%"

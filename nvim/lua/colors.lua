@@ -1,7 +1,7 @@
 return {
 	blue = "#8CC4FF",
 	cyan = "#7DCFFF",
-	black = "#0C0E10",
+	black = "#000000",
 	bg_alt = "#151A1F",
 	white = "#E6E9EF",
 	red = "#FF7A9A",
