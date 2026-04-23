@@ -44,6 +44,40 @@ return {
 			},
 		})
 
+		vim.lsp.config("tailwindcss", {
+			settings = {
+				tailwindCSS = {
+					lint = {
+						cssConflict = "warning",
+						invalidApply = "error",
+						invalidConfigPath = "error",
+						invalidScreen = "error",
+						invalidTailwindDirective = "error",
+						recommendedVariantOrder = "warning",
+						suggestCanonicalClasses = "ignore",
+						unknownAtRules = "ignore",
+					},
+				},
+			},
+		})
+
+		vim.lsp.config("cssls", {
+			settings = {
+				css = {
+					lint = {
+						unknownAtRules = "ignore",
+					},
+					validate = true,
+				},
+				scss = {
+					lint = {
+						unknownAtRules = "ignore",
+					},
+					validate = true,
+				},
+			},
+		})
+
 		vim.lsp.enable({
 			"bashls",
 			"cssls",

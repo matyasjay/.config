@@ -35,10 +35,6 @@ export OS_VERSION
 export SSL_CERT_FILE=${SSL_CERT_FILE}
 export USER
 
-for loaders in "${DOTFILES}"/*.sh; do
-  . "${loaders}"
-done
-
 source $ZSH/oh-my-zsh.sh
 
 typeset -aU path
@@ -72,11 +68,9 @@ alias ls="eza --color=always --long --git --icons=never --group-directories-firs
 
 alias python=python3
 
-source /opt/homebrew/opt/nvm/nvm.sh
+export PATH="$PATH:~/.local/share/rojo:/Users/amatyas/Downloads/worldbanc/private/bin:$PNPM_HOME:$HOME/go/bin"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export GPG_TTY=$(tty)
 
@@ -84,14 +78,14 @@ eval "$(fzf --zsh)"
 source "$HOME/.config/fzf/env.sh"
 source "$HOME/.config/fzf/zsh.sh"
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/opt/homebrew/bin:$HOME/.local/bin:$PATH"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+nvm use default >/dev/null
+
 export PNPM_HOME="/Users/amatyas/Library/pnpm"
-export PATH="$PATH:~/.local/share/rojo:/Users/amatyas/Downloads/worldbanc/private/bin:$PNPM_HOME:$HOME/go/bin"
-
-COREPACK_ENABLE_AUTO_PIN=0
-corepack enable > /dev/null 2>&1
-
 
 . "$HOME/.local/bin/env"
