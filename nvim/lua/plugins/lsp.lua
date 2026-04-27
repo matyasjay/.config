@@ -46,6 +46,11 @@ return {
 
 		vim.lsp.config("tailwindcss", {
 			settings = {
+				userLanguages = {
+					elixir = "html-eex",
+					heex = "html-eex",
+					eelixir = "html-eex",
+				},
 				tailwindCSS = {
 					lint = {
 						cssConflict = "warning",

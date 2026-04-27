@@ -1,0 +1,4 @@
+interface:
+  display_name: "Edit Terminal Config"
+  short_description: "Maintain shell, tmux, and CLI configs"
+  default_prompt: "Use $edit-terminal-config to update shell, tmux, fzf, or small CLI configs in this dotfiles repo."

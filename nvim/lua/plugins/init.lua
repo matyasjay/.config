@@ -1,5 +1,4 @@
 return {
-	"L3MON4D3/LuaSnip",
 	"MunifTanjim/prettier.nvim",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-nvim-lsp",

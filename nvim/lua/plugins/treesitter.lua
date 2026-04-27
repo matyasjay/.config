@@ -10,6 +10,7 @@ return {
 				ensure_installed = {
 					"css",
 					"dockerfile",
+					"elixir",
 					"gitcommit",
 					"html",
 					"javascript",

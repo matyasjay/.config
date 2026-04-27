@@ -10,6 +10,7 @@ tmux/plugins
 zed
 undo
 pgcli/log
+composer
 
 !git/
 !htop/

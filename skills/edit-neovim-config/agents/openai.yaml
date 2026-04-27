@@ -1,0 +1,4 @@
+interface:
+  display_name: "Edit Neovim Config"
+  short_description: "Maintain this Lua Neovim setup"
+  default_prompt: "Use $edit-neovim-config to update the Neovim configuration in this dotfiles repo."

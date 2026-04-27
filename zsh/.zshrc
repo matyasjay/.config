@@ -37,6 +37,8 @@ source "$ZSH/oh-my-zsh.sh"
 autoload -Uz colors
 colors
 
+unset VIM
+
 # Aliases
 alias vim="nvim"
 alias vi="nvim"
@@ -127,10 +129,36 @@ export GPG_TTY="$(tty)"
 [ -f "$HOME/.config/fzf/env.sh" ] && source "$HOME/.config/fzf/env.sh"
 [ -f "$HOME/.config/fzf/zsh.sh" ] && source "$HOME/.config/fzf/zsh.sh"
 
-# NVM
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-nvm use default >/dev/null 2>&1
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+[ -s ~/.luaver/luaver ] && . ~/.luaver/luaver
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/Users/amatyas/.juliaup/bin' $path)
+export PATH
+# Tab completion for juliaup and julia channel selection
+[ -f "/Users/amatyas/.julia/juliaup/completions/zsh.zsh" ] && source "/Users/amatyas/.julia/juliaup/completions/zsh.zsh"
+
+# <<< juliaup initialize <<<
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/Users/amatyas/.opam/opam-init/init.zsh' ]] || source '/Users/amatyas/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
+
+# NVM
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+nvm use default >/dev/null 2>&1
