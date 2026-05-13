@@ -11,6 +11,7 @@ zed
 undo
 pgcli/log
 composer
+cagent
 
 !git/
 !htop/

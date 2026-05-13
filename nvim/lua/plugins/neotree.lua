@@ -59,6 +59,16 @@ return {
 		},
 		filesystem = {
 			follow_current_file = { enabled = true },
+			always_show = {
+				"kernel",
+				".github",
+				".gitignore",
+			},
+			always_show_by_pattern = {
+				".env*",
+				"kernel/**/*",
+				".github/**/*",
+			},
 			components = {
 				harpoon_index = function(config, node, _)
 					local Marked = require("harpoon.mark")
