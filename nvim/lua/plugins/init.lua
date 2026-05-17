@@ -15,7 +15,7 @@ return {
 	"rafamadriz/friendly-snippets",
 	"saadparwaiz1/cmp_luasnip",
 	"tpope/vim-fugitive",
-	"wakatime/vim-wakatime",
+	--"wakatime/vim-wakatime",
 	"wesleimp/stylua.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"williamboman/mason.nvim",
